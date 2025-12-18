@@ -13,3 +13,4 @@ let address = prompt("주소를 입력:");
 
 console.log(`이름은 ${name}, 전화번호는 ${phone}, 주소는 ${address}`);
 
+
