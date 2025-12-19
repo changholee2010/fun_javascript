@@ -12,6 +12,16 @@
 // git commit -m "18일 숙제완료"
 // git push origin main
 
+// 1 ~ 10 까지 정수를 합하는 반복문.
+// 홀수값만 누적. 1,3,5,7,9/ 2,4,6,8,10
+// "합계는 55"
+
+// 함수: oddSum() 정의.
+// 함수호출.
+
+// 함수: sumUp() / 1 ~ 5 까지의 합. 반환.
+// result 변수에 저장.
+
 function scoreInfo() {
   let sum = 0;
   let avg = 0;
