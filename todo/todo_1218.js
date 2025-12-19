@@ -11,3 +11,19 @@
 // git add .
 // git commit -m "18일 숙제완료"
 // git push origin main
+
+function scoreInfo() {
+  let sum = 0;
+  let avg = 0;
+  let maxNumber = 0;
+  for (let i = 1; i <= 5; i++) {
+    let randomNum = Math.ceil(Math.random() * 70) + 30;
+    sum += randomNum;
+    if (maxNumber < randomNum) {
+      maxNumber = randomNum;
+    }
+  }
+  avg = sum / 5;
+  console.log(`합계는 ${sum}, 평균 ${avg}, 최대 ${maxNumber}`);
+}
+scoreInfo();
