@@ -47,10 +47,10 @@ let str = `<table border="3">
       <tbody>`;
 for (let member of members) {
   str += `<tr>
-          <td>${member.id}</td>
-          <td>${member.name}</td>
-          <td>${member.point}</td>
-        </tr>`;
+            <td>${member.id}</td>
+            <td>${member.name}</td>
+            <td>${member.point}</td>
+          </tr>`;
 }
 str += `<tr><td colspan='2'>합계</td><td>${sum}</td></tr>`;
 str += `</tbody>
