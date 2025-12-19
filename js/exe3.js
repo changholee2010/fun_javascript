@@ -34,3 +34,25 @@ for (let i = 0; i < members.length; i++) {
   }
 }
 console.log(`포인트 합계: ${sum}, 최고포인트: ${max}`);
+
+// 화면에 목록출력하기.
+let str = `<table border="3">
+      <thead>
+        <tr>
+          <th>아이디</th>
+          <th>이름</th>
+          <th>포인트</th>
+        </tr>
+      </thead>
+      <tbody>`;
+for (let member of members) {
+  str += `<tr>
+          <td>${member.id}</td>
+          <td>${member.name}</td>
+          <td>${member.point}</td>
+        </tr>`;
+}
+str += `<tr><td colspan='2'>합계</td><td>${sum}</td></tr>`;
+str += `</tbody>
+    </table>`;
+document.writeln(str);
