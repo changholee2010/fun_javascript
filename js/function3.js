@@ -15,3 +15,8 @@ result = (function (x, y) {
   return x > y ? x : y;
 })(45, 29);
 console.log(result);
+
+// 화살표함수. (매개변수) => { 기능구현 }
+const hi = (name) => `hello !  ${name}`;
+
+console.log(hi("김민수"));
