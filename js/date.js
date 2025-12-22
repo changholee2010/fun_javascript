@@ -45,12 +45,15 @@ console.log(`말일: ${today.getDate()}`);
 function pritCalendar(yyyy, mm) {
   let today = new Date();
   today.setFullYear(yyyy);
-  today.setMonth(mm);
-
+  today.setMonth(mm - 1);
+  today.setDate(1);
   // 1일이 화요일.
-  const spaces = 5;
+  const spaces = today.getDay();
+
+  today.setMonth(mm);
+  today.setDate(0);
   // 31일 막날.
-  const lastDate = 28;
+  const lastDate = today.getDate();
 
   // 배열.
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
