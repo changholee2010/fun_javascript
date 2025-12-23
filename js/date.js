@@ -44,10 +44,13 @@ console.log(`말일: ${today.getDate()}`);
 
 ////////////////////////////////////////////
 // button에 클릭 이벤트 등록하기.
-const yyyyVal = "2025";
-const mmVal = "12";
-year = yyyyVal;
-month = mmVal;
+const BEGIN_YEAR = "2025";
+const BEGIN_MONTH = "12";
+
+year = BEGIN_YEAR;
+month = BEGIN_MONTH;
+
+// 달력그리기 위한 변수를 공유.
 let calendarDate = new Date();
 calendarDate.setFullYear(year);
 calendarDate.setMonth(month - 1);
