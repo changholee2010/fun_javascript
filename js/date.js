@@ -44,10 +44,52 @@ console.log(`말일: ${today.getDate()}`);
 
 ////////////////////////////////////////////
 // button에 클릭 이벤트 등록하기.
-document.querySelector("button").addEventListener("click", (e) => {
-  // 년도, 월 정보 갖고 오기.
-  const year = document.querySelector("#yyyy").value;
-  const month = document.querySelector("#mm").value;
+const yyyyVal = "2025";
+const mmVal = "12";
+year = yyyyVal;
+month = mmVal;
+let calendarDate = new Date();
+calendarDate.setFullYear(year);
+calendarDate.setMonth(month - 1);
+
+document.querySelector("button#prev").addEventListener("click", (e) => {
+  // 화면에 출력된 "년도,월" 이전 달 정보 보여주기.
+  month--;
+  calendarDate.setFullYear(year);
+  calendarDate.setMonth(month - 1);
+
+  year = calendarDate.getFullYear();
+  month = calendarDate.getMonth() + 1;
+
+  document.querySelector("#yyyy").value = year;
+  document.querySelector("#mm").value = month;
+
+  printCalendar(year, month);
+});
+
+document.querySelector("button#now").addEventListener("click", (e) => {
+  // 오늘날짜 기준의 달력을 보여주기.
+  calendarDate = new Date();
+  year = calendarDate.getFullYear();
+  month = calendarDate.getMonth() + 1;
+
+  document.querySelector("#yyyy").value = year;
+  document.querySelector("#mm").value = month;
+  printCalendar(year, month);
+});
+
+document.querySelector("button#next").addEventListener("click", (e) => {
+  // 화면에 출력된 "년도,월" 다음 달 정보 보여주기.
+  month++;
+  calendarDate.setFullYear(year);
+  calendarDate.setMonth(month - 1);
+
+  year = calendarDate.getFullYear();
+  month = calendarDate.getMonth() + 1;
+
+  document.querySelector("#yyyy").value = year;
+  document.querySelector("#mm").value = month;
+
   printCalendar(year, month);
 });
 ////////////////////////////////////////////
@@ -92,7 +134,7 @@ function printCalendar(yyyy, mm) {
   // id가 calendar인 요소의 innerHTML의 속성에 값을 넣으면...
   document.querySelector("#calendar").innerHTML = htmlStr;
 }
-printCalendar(2025, 5);
+printCalendar(year, month);
 
 // 객체, 메소드 => 객체를 매개값으로 받아서 객체.메소드를 활용하기.
 function printDay(now = new Date()) {
