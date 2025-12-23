@@ -42,7 +42,7 @@ console.log(`말일: ${today.getDate()}`);
 
 // 계산.
 // 달력()
-function pritCalendar(yyyy, mm) {
+function printCalendar(yyyy, mm) {
   let today = new Date();
   today.setFullYear(yyyy);
   today.setMonth(mm - 1);
@@ -76,7 +76,7 @@ function pritCalendar(yyyy, mm) {
   htmlStr += `</tr></tbody></table>`;
   document.writeln(htmlStr);
 }
-pritCalendar(2025, 5);
+printCalendar(2025, 5);
 
 // 객체, 메소드 =>
 function printDay(now = new Date()) {
