@@ -16,13 +16,24 @@ makeList();
 document
   .querySelector('button[class*="success"]') //
   .addEventListener("click", (e) => {
-    console.log(e);
     const studNo = document.querySelector("#studNo").value;
     const studName = document.querySelector("#studName").value;
     const score = document.querySelector("#score").value;
     // 항목입력X -> 입력하세요.
     if (!studNo || !studName || !score) {
       alert("입력하세요!");
+      return;
+    }
+    // 중복값체크.
+    // for (let student of students) {
+    //   if (student.studNo == studNo) {
+    //     alert("동일한 학생번호 존재합니다.");
+    //     return;
+    //   }
+    // }
+    let exists = students.some((elem) => elem.studNo == studNo);
+    if (exists) {
+      alert("동일한 학생번호 존재합니다.");
       return;
     }
     students.push({ studNo, studName, score });
@@ -45,14 +56,33 @@ function makeList() {
 
 // 학생정보 -> tr 생성해주는 함수.
 function makeTr(student = {}) {
+  let fields = ["studNo", "studName", "score"];
   // tr 생성.
   let tr = document.createElement("tr");
-  for (let prop in student) {
+  for (let prop of fields /*in student*/) {
     // td 생성.
     let td = document.createElement("td");
     td.innerText = student[prop];
     tr.appendChild(td);
   }
+  // <td><button>삭제</button></td>
+  let td = document.createElement("td"); // <td></td>
+  let delBtn = document.createElement("button"); // <button></button>
+  // 삭제버튼의 이벤트.
+  delBtn.addEventListener("click", deleteRowFnc);
+  delBtn.innerText = "삭제"; // <button>삭제</button>
+  delBtn.className = "btn btn-danger"; // <button class='btn btn-danger'>삭제</button>
+  delBtn.setAttribute("data-sno", student.studNo); // <button data-sno="25-001">..</button>
+  td.appendChild(delBtn); // <td><button class='btn btn-danger'>삭제</button></td>
+  tr.appendChild(td); // <tr>....<td><button class='btn btn-danger'>삭제</button></td></tr>
   // 반환.
   return tr;
 } // end of makeTr.
+
+// 삭제버튼에 이벤트핸들러.
+function deleteRowFnc(e) {
+  // this.parentElement.parentElement.remove();
+  let delNo = this.dataset.sno; // 삭제할 학생번호
+  students = students.filter((elem) => elem.studNo != delNo); // 조건을 만족하는 배열 생성.
+  makeList();
+}
