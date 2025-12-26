@@ -1,5 +1,6 @@
 // productPage.js
 console.log(products);
+// https://www.youtube.com/live/P98Ed3LnNCw
 
 // category 중복제거 후 배열에 저장.
 let categories = [];
