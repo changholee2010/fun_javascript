@@ -1,4 +1,11 @@
 // string.js
+["LG 노트북", "삼성노트북", "모니터", "마우스"].forEach((elem) => {
+  //
+  if (elem.indexOf("노트북") >= 0) {
+    console.log(elem);
+  }
+});
+
 let str = "hello, world";
 // 1. substring(start_index, end_index)
 console.log(str.substring(7));
