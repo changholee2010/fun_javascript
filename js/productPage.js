@@ -36,6 +36,14 @@ selectCategories.addEventListener("change", (e) => {
 
 // '조회' 버튼을 클릭하면...
 // filter 메소드를 활용해서 목록. showProductList함수를 활용해서 출력.
+const findBtn = document.querySelector("div.search button");
+findBtn.addEventListener("click", (e) => {
+  let searchTxt = document.querySelector("div.search input").value;
+  let searchProducts = products.filter((elem) => {
+    return elem.productName.indexOf(searchTxt) >= 0;
+  });
+  showProductList(searchProducts);
+});
 
 /////////// 함수 /////////////////////
 function showProductList(productAry = []) {
