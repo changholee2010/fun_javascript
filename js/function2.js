@@ -1,28 +1,23 @@
-// function2.js
-// sum함수. 매개변수 2개 더한 결과를 콘솔에 출력.
-let result1 = 10; // 전역변수(global variable).
+console.log(`function2 => `, ary1);
 
-function sum(x, y) {
-  console.log(result1);
-  let result = result1 + x + y; // result : 지역변수(local variable).
-  console.log(`합 ${result}`);
-}
-
-sum(1, 2);
-console.log(`전역: ${result1}`);
-result1 = 20;
-
-{
-  let result1 = 30;
-  console.log(result1);
-}
-console.log(result1);
-
-// 코드.
-// 함수: gugudan, 4단을 콘솔에 출력.
-function gugudan(dan) {
-  for (let i = 1; i <= 9; i++) {
-    console.log(`${dan} * ${i} = ${dan * i}`);
+// 함수(member => tr>td:(id),td(fn),td(ln),td(salary))
+function makeTr(member) {
+  const fields = ["id", "first_name", "last_name", "salary"];
+  const trTag = document.createElement("tr");
+  // td*4 생성.
+  for (let field of fields) {
+    const tdTag = document.createElement("td"); // <td></td>
+    tdTag.innerText = member[field];
+    // appendChild.
+    trTag.appendChild(tdTag);
   }
+  // tr반환.
+  return trTag;
 }
-gugudan(9);
+
+// 멤버 수만큼 tr 생성.
+const target = document.querySelector("#target");
+for (let elem of ary1) {
+  const newTr = makeTr(elem);
+  target.appendChild(newTr);
+}
