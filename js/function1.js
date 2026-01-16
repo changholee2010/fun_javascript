@@ -129,17 +129,17 @@ function getMemberInfo(memberAry) {
 const ary1 = JSON.parse(jsonData1);
 let result = getMemberInfo(ary1);
 
-console.log(
-  `전체 급여합계는 ${result.sum}
-  , 전체 평균급여는 ${result.avg}
-  , 남자 합계급여는 ${result.sumOfMale}
-  , 남자 평균급여는 ${result.avgOfMale}`
-);
+// console.log(
+//   `전체 급여합계는 ${result.sum}
+//   , 전체 평균급여는 ${result.avg}
+//   , 남자 합계급여는 ${result.sumOfMale}
+//   , 남자 평균급여는 ${result.avgOfMale}`
+// );
 
 let jsonStr = `{"name": "Hong", "age": 20, "weight": 67}`;
 let obj = JSON.parse(jsonStr); // 문자열 => 객체.
 let jsonStr2 = JSON.stringify(obj); // 객체 => 문자열.
 
-console.log(jsonStr);
-console.log(obj);
-console.log(jsonStr2);
+// console.log(jsonStr);
+// console.log(obj);
+// console.log(jsonStr2);
