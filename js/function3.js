@@ -1,6 +1,9 @@
 let totalCnt = 100;
 let page = 1; // 현재페이지.
 
+// ary1을 사용하지말고 totalList를 선언해서 작업함.
+let totalList = [...ary1];
+
 //////////////////////// 함수들 ////////////////////////////
 // 함수(member => tr>td:(id),td(fn),td(ln),td(salary))
 function makeTr(member) {
@@ -43,7 +46,7 @@ function showPageList(pg = 1) {
 function showPageList2(page = 1) {
   let start = (page - 1) * pageSize; // 20
   let end = page * pageSize; // 30
-  let pageAry = ary1.slice(start, end);
+  let pageAry = totalList.slice(start, end);
 
   const listStr = `${pageAry
     .map(
@@ -52,7 +55,7 @@ function showPageList2(page = 1) {
                    <td>${elem.first_name}</td>
                    <td>${elem.last_name}</td>
                    <td>${elem.salary}</td>
-                   <td><button class="btn btn-danger">삭제</button></td>
+                   <td><button onclick="deleteRow(${elem.id})" class="btn btn-danger">삭제</button></td>
                  </tr>`
     )
     .join("")}`;
@@ -112,6 +115,14 @@ function generatePagingList() {
   ulPagination.insertAdjacentHTML("beforeend", nextStr);
 } // end of generatePagingList().
 generatePagingList();
+
+// 삭제기능.
+function deleteRow(id) {
+  console.log(id);
+  totalList = totalList.filter((elem) => elem.id != id);
+  generatePagingList(page);
+  showPageList2(page);
+}
 
 ////////////////// 이벤트 //////////////////////
 document.querySelector("ul.pagination").addEventListener("click", (e) => {
