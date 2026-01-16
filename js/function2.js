@@ -1,4 +1,4 @@
-let totalCnt = 167;
+let totalCnt = 100;
 let page = 1; // 현재페이지.
 
 //////////////////////// 함수들 ////////////////////////////
@@ -20,14 +20,16 @@ function makeTr(member) {
 // 멤버 수만큼 tr 생성.
 const target = document.querySelector("#target");
 
+const pageSize = 5; // 페이지당 건수.
+
 // 페이지별 목록보여주기.
 function showPageList(pg = 1) {
   // 기존목록 지우기.
   target.innerHTML = "";
 
   let page = pg; // 페이지.
-  let start = (page - 1) * 10; // 20
-  let end = page * 10; // 30
+  let start = (page - 1) * pageSize; // 20
+  let end = page * pageSize; // 30
   let pageAry = ary1.slice(start, end);
 
   // 배열의 건수만큼 화면출력.
@@ -44,7 +46,7 @@ function generatePagingList() {
   let ulPagination = document.querySelector("ul.pagination");
   ulPagination.innerHTML = "";
 
-  let realEnd = Math.ceil(totalCnt / 10); // 건수계산 마지막페이지.
+  let realEnd = Math.ceil(totalCnt / pageSize); // 건수계산 마지막페이지.
   let startPage = 1, // 시작페이지.
     endPage = 10; // 마지막페잊.
   let prev = false, // 이전페이지 여부.
@@ -68,6 +70,7 @@ function generatePagingList() {
   let ahref = document.createElement("a");
   ahref.className = "page-link"; // 클래스 추가.
   ahref.innerText = "Previous";
+  ahref.setAttribute("data-page", startPage - 1);
   if (prev) {
     ahref.setAttribute("href", "#"); // href속성 추가.
   } else {
@@ -85,6 +88,7 @@ function generatePagingList() {
     ahref.className = "page-link";
     ahref.setAttribute("href", "#");
     ahref.innerText = p;
+    ahref.setAttribute("data-page", p);
     // 현재 페이지에 스타일 추가.
     if (p == page) {
       liTag.classList.add("active"); // 클래스값 추가.
@@ -101,6 +105,7 @@ function generatePagingList() {
   ahref = document.createElement("a");
   ahref.className = "page-link";
   ahref.innerText = "Next";
+  ahref.setAttribute("data-page", endPage + 1);
   if (next) {
     ahref.setAttribute("href", "#"); // href속성 추가.
   } else {
@@ -117,7 +122,7 @@ document.querySelector("ul.pagination").addEventListener("click", (e) => {
   // 클릭되는 대상 파악하기.
   let selectPage = 1;
   if (e.target.tagName == "A") {
-    selectPage = e.target.innerText;
+    selectPage = e.target.dataset.page; // <a data-img="" data-page="1">1</a>
     // 페이징목록.
     page = selectPage;
     generatePagingList();
