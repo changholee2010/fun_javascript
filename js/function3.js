@@ -38,7 +38,26 @@ function showPageList(pg = 1) {
     target.appendChild(newTr);
   }
 } // end of showPageList().
-showPageList();
+function showPageList2(page = 1) {
+  let start = (page - 1) * pageSize; // 20
+  let end = page * pageSize; // 30
+  let pageAry = ary1.slice(start, end);
+
+  const listStr = `${pageAry
+    .map(
+      (elem) => `<tr>
+                   <td>${elem.id}</td>
+                   <td>${elem.first_name}</td>
+                   <td>${elem.last_name}</td>
+                   <td>${elem.salary}</td>
+                   <td><button class="btn btn-danger">삭제</button></td>
+                 </tr>`
+    )
+    .join("")}`;
+  // 목록 출력하기.
+  target.innerHTML = listStr;
+}
+showPageList2();
 
 // 페이징목록 생성.
 function generatePagingList() {
@@ -102,6 +121,6 @@ document.querySelector("ul.pagination").addEventListener("click", (e) => {
     page = selectPage;
     generatePagingList();
     // 페이지별 회원목록.
-    showPageList(selectPage);
+    showPageList2(selectPage);
   }
 });
