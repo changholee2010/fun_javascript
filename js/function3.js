@@ -38,6 +38,8 @@ function showPageList(pg = 1) {
     target.appendChild(newTr);
   }
 } // end of showPageList().
+
+// insertAdjacementHTML을 사용하여 재구성.
 function showPageList2(page = 1) {
   let start = (page - 1) * pageSize; // 20
   let end = page * pageSize; // 30
