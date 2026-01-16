@@ -17,7 +17,13 @@ function makeTr(member) {
 
 // 멤버 수만큼 tr 생성.
 const target = document.querySelector("#target");
-for (let elem of ary1) {
+let page = 2; // 1페이지
+let pageSize = 10; // 페이지당 건수
+let start = (page - 1) * pageSize; // 0
+let end = start + pageSize; // 10
+const pageAry = ary1.slice(start, end);
+
+for (let elem of pageAry) {
   const newTr = makeTr(elem);
   target.appendChild(newTr);
 }
