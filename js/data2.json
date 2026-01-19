@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "first_name": "Christy",
+    "last_name": "Tanfield",
+    "email": "ctanfield0@pen.io",
+    "gender": "Male",
+    "salary": 10187
+  },
+  {
+    "id": 2,
+    "first_name": "Tatum",
+    "last_name": "Buxton",
+    "email": "tbuxton1@china.com.cn",
+    "gender": "Female",
+    "salary": 11936
+  },
+  {
+    "id": 3,
+    "first_name": "Emmye",
+    "last_name": "Penwright",
+    "email": "epenwright2@networkadvertising.org",
+    "gender": "Female",
+    "salary": 15206
+  },
+  {
+    "id": 4,
+    "first_name": "Lorenza",
+    "last_name": "Rudolph",
+    "email": "lrudolph3@barnesandnoble.com",
+    "gender": "Female",
+    "salary": 13002
+  },
+  {
+    "id": 5,
+    "first_name": "Dennison",
+    "last_name": "Reyner",
+    "email": "dreyner4@nps.gov",
+    "gender": "Bigender",
+    "salary": 3749
+  },
+  {
+    "id": 6,
+    "first_name": "Valli",
+    "last_name": "Grinham",
+    "email": "vgrinham5@netvibes.com",
+    "gender": "Female",
+    "salary": 13268
+  },
+  {
+    "id": 7,
+    "first_name": "Chrotoem",
+    "last_name": "Eastcourt",
+    "email": "ceastcourt6@webnode.com",
+    "gender": "Non-binary",
+    "salary": 8617
+  },
+  {
+    "id": 8,
+    "first_name": "Camella",
+    "last_name": "Prahm",
+    "email": "cprahm7@sina.com.cn",
+    "gender": "Polygender",
+    "salary": 2419
+  },
+  {
+    "id": 9,
+    "first_name": "Ewan",
+    "last_name": "Monte",
+    "email": "emonte8@oracle.com",
+    "gender": "Male",
+    "salary": 15051
+  },
+  {
+    "id": 10,
+    "first_name": "Allister",
+    "last_name": "Hawksworth",
+    "email": "ahawksworth9@stumbleupon.com",
+    "gender": "Male",
+    "salary": 11057
+  },
+  {
+    "id": 11,
+    "first_name": "Tobey",
+    "last_name": "Callery",
+    "email": "tcallerya@smh.com.au",
+    "gender": "Female",
+    "salary": 2061
+  },
+  {
+    "id": 12,
+    "first_name": "Kirby",
+    "last_name": "Whitby",
+    "email": "kwhitbyb@goodreads.com",
+    "gender": "Male",
+    "salary": 10243
+  },
+  {
+    "id": 13,
+    "first_name": "Lelah",
+    "last_name": "Greed",
+    "email": "lgreedc@google.fr",
+    "gender": "Female",
+    "salary": 9861
+  },
+  {
+    "id": 14,
+    "first_name": "Raf",
+    "last_name": "Dows",
+    "email": "rdowsd@va.gov",
+    "gender": "Female",
+    "salary": 14547
+  },
+  {
+    "id": 15,
+    "first_name": "Gwendolin",
+    "last_name": "Olennikov",
+    "email": "golennikove@amazon.de",
+    "gender": "Female",
+    "salary": 19596
+  }
+]

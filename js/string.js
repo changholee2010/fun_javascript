@@ -19,3 +19,16 @@ console.log(`길동은 ${cnt}명입니다.`);
 const newNames = names //
   .filter((elem) => elem.includes("길동"));
 console.log(newNames);
+
+// slice()
+console.log("Hello, World".slice(-2));
+
+const now = new Date(); // 시스템의 시간.
+console.log(now);
+
+const yyyy = now.getFullYear(); // 2026
+now.setMonth(11); // 0 ~ 11 월정보.
+now.setDate(3);
+const mm = now.getMonth() + 1; // 0
+const dd = now.getDate(); // 19
+console.log(`${yyyy}-${("0" + mm).slice(-2)}-${("0" + dd).slice(-2)}`);
