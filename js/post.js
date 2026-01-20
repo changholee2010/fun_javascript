@@ -2,7 +2,7 @@
 // 1. fetch 글목록 출력.
 const fields = ["id", "title", "author"];
 const target = document.querySelector("#postList");
-let new_id = 0; // 신규글번호
+let max_id = 0; // 신규글번호
 
 fetch("http://192.168.0.29:3000/posts")
   .then((resp) => resp.json())
@@ -12,10 +12,9 @@ fetch("http://192.168.0.29:3000/posts")
       target.appendChild(makeTr(elem));
     });
     // reduce.
-    new_id = data.reduce((acc, elem) => {
-      return acc > elem.id ? acc : elem.id;
+    max_id = data.reduce((acc, { id, title, author }) => {
+      return acc > Number(id) ? acc : Number(id);
     }, 0);
-    console.log(new_id);
   })
   .catch((err) => console.log(err));
 
@@ -31,7 +30,7 @@ document
     fetch("http://localhost:3000/posts", {
       method: "post",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: Number(new_id) + 1, title, author }),
+      body: JSON.stringify({ id: "" + (Number(max_id) + 1), title, author }),
     })
       .then((resp) => resp.json())
       .then((data) => {
