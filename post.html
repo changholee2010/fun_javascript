@@ -15,28 +15,27 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
-    <style>
-      div.container {
-        width: 530px;
-        height: 350px;
-        background-color: yellow;
-      }
-
-      div.container > span {
-        display: inline-block;
-        width: 110px;
-        margin: 5px;
-        padding: 2px;
-        background-color: aquamarine;
-      }
-    </style>
   </head>
   <body>
-    <h3 id="title">자바스크립트2</h3>
-    입력: <input type="text" id="user_input" />
-    <button class="btn btn-secondary">찾기</button>
-    <div class="container"></div>
-    <ul id="list"></ul>
-    <script src="js/array2.js"></script>
+    <h3>게시판</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>삭제</th>
+        </tr>
+      </thead>
+      <tbody id="postList">
+        <tr>
+          <td>1</td>
+          <td>json-server</td>
+          <td>user01</td>
+          <td><button>삭제</button></td>
+        </tr>
+      </tbody>
+    </table>
   </body>
+  <script src="js/post.js"></script>
 </html>

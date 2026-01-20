@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>REST Api</h3>
+    <p>Create, Read, Update, Delete => Post, Get, Put, Delete</p>
+    <p>Resource (url="http://192.168.0.34:3000/posts")</p>
+
+    <button onclick="addPost()">Post요청.</button><br />
+    <button onclick="modifyPost()">Put요청.</button><br />
+    <button onclick="removePost()">Delete요청.</button>
+    <script>
+      function removePost() {
+        fetch("http://localhost:3000/posts/3", {
+          method: "delete",
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.log(err));
+      }
+
+      function modifyPost() {
+        // Put요청방식.
+        fetch("http://localhost:3000/posts/3", {
+          method: "put",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title: "3번글 변경됨.", author: "user01" }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.log(err));
+      }
+
+      function addPost() {
+        // Post방식.
+        fetch("http://localhost:3000/posts", {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ title: "새로운 글 등록", author: "user01" }),
+        })
+          .then((resp) => resp.json())
+          .then((data) => {
+            console.log(data);
+          })
+          .catch((err) => console.log(err));
+      }
+    </script>
+  </body>
+</html>
