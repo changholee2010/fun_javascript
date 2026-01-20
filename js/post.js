@@ -39,9 +39,35 @@ document
       .catch((err) => console.log(err));
   });
 
+// 저장버튼 이벤트.
+function closeModal() {
+  // 화면요소의 속성값을 불러오기.
+  const id = document.querySelector("#modalNo").textContent;
+  const title = document.querySelector("#modalTitle").value;
+  const author = document.querySelector("#modalAuthor").value;
+  // fetch호출.
+  fetch(`http://localhost:3000/posts/${id}`, {
+    method: "put",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ title, author }),
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      document.querySelector(".modal-overlay").style.display = "none";
+    })
+    .catch((err) => console.log(err));
+}
+
 // tr생성함수.
 function makeTr(post) {
   let tr = document.createElement("tr");
+  tr.addEventListener("dblclick", (e) => {
+    document.querySelector(".modal-overlay").style.display = "block";
+    // 글번호영역.
+    document.querySelector("#modalNo").textContent = post.id;
+    document.querySelector("#modalTitle").value = post.title;
+    document.querySelector("#modalAuthor").value = post.author;
+  });
   for (let field of fields) {
     let td = document.createElement("td");
     td.innerText = post[field]; // 객체[속성] => 값을 가져옴.
